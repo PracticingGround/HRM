@@ -1,0 +1,3264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR Management — Complete Study Guide | Sessions 3–8</title>
+  <meta name="description"
+    content="Comprehensive HR Management Study Guide covering Sessions 3-8: Competency-Based HR, Job Analysis, Recruitment, Performance Management, Training, and Compensation.">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════
+   CSS VARIABLES — LIGHT & DARK
+═══════════════════════════════════════════════ */
+    :root {
+      --bg: #f5f2eb;
+      --surface: #ffffff;
+      --surface2: #f0ede5;
+      --border: #d8d3c8;
+      --text: #0f1117;
+      --muted: #6b6560;
+      --heading: #0f1117;
+      --highlight: #fff9e6;
+      --ink-hdr: #0f1117;
+      --gold: #d4a017;
+      --accent: #c8422a;
+      --toggle-bg: #e2ddd5;
+      --toggle-knob: #ffffff;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      --s3: #c8422a;
+      --s4: #2a6db5;
+      --s5: #2d8a55;
+      --s6: #8b3fa8;
+      --s7: #c67800;
+      --s8: #1a7a7a;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0d0f14;
+      --surface: #141720;
+      --surface2: #1c2030;
+      --border: #272c3d;
+      --text: #e2e6f0;
+      --muted: #7a8099;
+      --heading: #ffffff;
+      --highlight: #1a1d28;
+      --ink-hdr: #0d0f14;
+      --gold: #e8b84b;
+      --accent: #ff6b4a;
+      --toggle-bg: #272c3d;
+      --toggle-knob: #e2e6f0;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ═══════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.75;
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════════════════
+   PAGE TRANSITIONS
+═══════════════════════════════════════════════ */
+    .page {
+      display: none;
+      animation: fadeSlideIn 0.4s ease-out;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeSlideOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      to {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════
+   DARK MODE TOGGLE
+═══════════════════════════════════════════════ */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 7px 14px 7px 10px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+      user-select: none;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--gold);
+    }
+
+    .toggle-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .toggle-track {
+      width: 36px;
+      height: 20px;
+      background: var(--toggle-bg);
+      border-radius: 10px;
+      position: relative;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+
+    .toggle-knob {
+      width: 14px;
+      height: 14px;
+      background: var(--toggle-knob);
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.25s, background 0.3s;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    [data-theme="dark"] .toggle-knob {
+      transform: translateX(16px);
+    }
+
+    [data-theme="dark"] .toggle-track {
+      background: var(--gold);
+    }
+
+    .toggle-icon {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    /* ═══════════════════════════════════════════════
+   STICKY BACK BUTTON
+═══════════════════════════════════════════════ */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 24px;
+      z-index: 999;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 8px 18px 8px 14px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: all 0.3s;
+      user-select: none;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .back-btn:hover {
+      border-color: var(--gold);
+      transform: translateX(-3px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-btn.visible {
+      display: flex;
+    }
+
+    .back-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--accent);
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    @media (max-width: 700px) {
+      .back-btn {
+        top: auto;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50px;
+        padding: 12px 24px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+        font-size: 14px;
+        backdrop-filter: blur(12px);
+        background: var(--surface);
+      }
+
+      .back-btn:hover {
+        transform: translateX(-50%) translateY(-2px);
+      }
+    }
+
+    /* ═══════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════ */
+    .masthead {
+      background: var(--ink-hdr);
+      color: #f5f2eb;
+      padding: 60px 60px 48px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    [data-theme="dark"] .masthead {
+      background: #0a0c10;
+    }
+
+    .masthead::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--s3), var(--gold), var(--s4), var(--s5), var(--s6), var(--s7), var(--s8));
+    }
+
+    [data-theme="dark"] .masthead::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .masthead-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .masthead-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .masthead-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .masthead h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5.5vw, 64px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: #f5f2eb;
+      margin-bottom: 20px;
+    }
+
+    [data-theme="dark"] .masthead h1 {
+      color: #ffffff;
+    }
+
+    .masthead h1 em {
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .masthead-sub {
+      font-size: 15px;
+      color: #a09890;
+      margin-bottom: 36px;
+      font-weight: 300;
+      max-width: 540px;
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════════
+   SESSION CARDS GRID (HOME PAGE)
+═══════════════════════════════════════════════ */
+    .session-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 60px 100px;
+    }
+
+    .session-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+
+    .session-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--card-accent);
+      opacity: 0.7;
+      transition: opacity 0.3s, height 0.3s;
+    }
+
+    .session-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+      border-color: var(--card-accent);
+    }
+
+    [data-theme="dark"] .session-card:hover {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .session-card:hover::before {
+      opacity: 1;
+      height: 4px;
+    }
+
+    .session-card:active {
+      transform: translateY(-2px) scale(0.99);
+    }
+
+    .session-card-inner {
+      padding: 24px 28px 28px;
+    }
+
+    .session-card-badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      color: white;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .session-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--heading);
+      margin-bottom: 10px;
+    }
+
+    .session-card-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .session-card-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .session-card-topic {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--surface2);
+      transition: background 0.3s;
+    }
+
+    .session-card-arrow {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .session-card:hover .session-card-arrow {
+      background: var(--card-accent);
+      border-color: var(--card-accent);
+    }
+
+    .session-card-arrow svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--muted);
+      stroke-width: 2;
+      fill: none;
+      transition: stroke 0.3s;
+    }
+
+    .session-card:hover .session-card-arrow svg {
+      stroke: white;
+    }
+
+    /* Quick Ref card special */
+    .session-card.qref-card {
+      grid-column: 1 / -1;
+      background: var(--ink-hdr);
+      border-color: transparent;
+    }
+
+    [data-theme="dark"] .session-card.qref-card {
+      background: #0a0c10;
+    }
+
+    .session-card.qref-card .session-card-title {
+      color: #f5f2eb;
+    }
+
+    [data-theme="dark"] .session-card.qref-card .session-card-title {
+      color: #fff;
+    }
+
+    .session-card.qref-card .session-card-desc {
+      color: #a09890;
+    }
+
+    .session-card.qref-card::before {
+      background: var(--gold);
+    }
+
+    .session-card.qref-card .session-card-badge {
+      background: var(--gold);
+    }
+
+    /* ═══════════════════════════════════════════════
+   SUB-PAGE HEADER
+═══════════════════════════════════════════════ */
+    .sub-header {
+      padding: 36px 60px 28px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .sub-header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .sub-header .session-badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 4px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .sub-header .session-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--heading);
+    }
+
+    /* ═══════════════════════════════════════════════
+   LAYOUT
+═══════════════════════════════════════════════ */
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 60px 100px;
+    }
+
+    /* ═══════════════════════════════════════════════
+   SESSION BLOCK (reused inside sub-pages)
+═══════════════════════════════════════════════ */
+    .session {
+      margin-top: 0;
+      border: none;
+      border-radius: 0;
+      overflow: visible;
+      background: transparent;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .session-hdr {
+      display: none;
+      /* hidden on sub-pages since we have sub-header */
+    }
+
+    .session-intro {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      max-width: 700px;
+      padding: 28px 0 0;
+      font-style: italic;
+    }
+
+    .session-body {
+      padding: 24px 0 28px;
+    }
+
+    /* ═══════════════════════════════════════════════
+   SECTION WITHIN SESSION
+═══════════════════════════════════════════════ */
+    .sec {
+      margin-bottom: 32px;
+    }
+
+    .sec:last-child {
+      margin-bottom: 0;
+    }
+
+    .sec-heading {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sec-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ═══════════════════════════════════════════════
+   THEORY BLOCK
+═══════════════════════════════════════════════ */
+    .theory {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px 20px 30px;
+      margin-bottom: 12px;
+      position: relative;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .theory::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      bottom: 16px;
+      width: 3px;
+      border-radius: 0 3px 3px 0;
+      background: var(--session-accent, var(--gold));
+    }
+
+    .theory-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 8px;
+    }
+
+    .theory p {
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .theory p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+   CONCEPT / CALLOUT BOX
+═══════════════════════════════════════════════ */
+    .concept-box {
+      background: var(--highlight);
+      border-left: 3px solid var(--gold);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 12px;
+      font-size: 13.5px;
+      line-height: 1.65;
+      transition: background 0.3s;
+    }
+
+    .callout {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 16px;
+      font-size: 13.5px;
+      line-height: 1.65;
+      margin-top: 12px;
+      transition: background 0.3s;
+    }
+
+    /* ═══════════════════════════════════════════════
+   EXAM TIP
+═══════════════════════════════════════════════ */
+    .exam-tip {
+      background: var(--highlight);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 13.5px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 16px;
+      transition: background 0.3s;
+    }
+
+    .exam-tip-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .exam-tip strong {
+      color: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════════════
+   GRIDS
+═══════════════════════════════════════════════ */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .auto-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    /* ═══════════════════════════════════════════════
+   CARDS
+═══════════════════════════════════════════════ */
+    .card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-size: 13.5px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .card-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-weight: 600;
+      color: var(--heading);
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    .card-body {
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+
+    /* ═══════════════════════════════════════════════
+   TABLES
+═══════════════════════════════════════════════ */
+    .table-wrap {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .t {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    .t th {
+      background: var(--surface);
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    [data-theme="dark"] .t th {
+      background: #0d0f14;
+    }
+
+    .t td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .t tr:last-child td {
+      border-bottom: none;
+    }
+
+    .t tr:hover td {
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    [data-theme="dark"] .t tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* ═══════════════════════════════════════════════
+   STEP LIST
+═══════════════════════════════════════════════ */
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 8px;
+    }
+
+    .step {
+      counter-increment: step;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 13.5px;
+      padding: 10px 14px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .step::before {
+      content: counter(step);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      min-width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: white;
+      background: var(--session-accent, var(--accent));
+      margin-top: 1px;
+    }
+
+    /* ═══════════════════════════════════════════════
+   DEFINITION LIST
+═══════════════════════════════════════════════ */
+    .def-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .def-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 14px;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .def-term {
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-top: 1px;
+    }
+
+    .def-term::after {
+      content: '→';
+      margin-left: 6px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* ═══════════════════════════════════════════════
+   COMPARISON PANEL
+═══════════════════════════════════════════════ */
+    .vs-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      align-items: start;
+    }
+
+    .vs-col {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      transition: background 0.3s;
+    }
+
+    .vs-label {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .vs-divider {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 24px 12px 0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .vs-item {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    .vs-item:last-child {
+      border-bottom: none;
+    }
+
+    .vs-item b {
+      color: var(--text);
+    }
+
+    /* ═══════════════════════════════════════════════
+   PILLS
+═══════════════════════════════════════════════ */
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .pill {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 11px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--surface2);
+      transition: background 0.3s;
+    }
+
+    .pill.hi {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════════════
+   BULLET LIST
+═══════════════════════════════════════════════ */
+    .bl {
+      list-style: none;
+      display: grid;
+      gap: 5px;
+    }
+
+    .bl li {
+      font-size: 13.5px;
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .bl li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+      top: 3px;
+    }
+
+    /* ═══════════════════════════════════════════════
+   DIAGRAM CONTAINER
+═══════════════════════════════════════════════ */
+    .diagram {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 14px;
+      overflow-x: auto;
+      transition: background 0.3s;
+    }
+
+    .diagram-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .diagram svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .svg-surface {
+      fill: var(--surface);
+    }
+
+    .svg-surface2 {
+      fill: var(--surface2);
+    }
+
+    .svg-border {
+      stroke: var(--border);
+    }
+
+    .svg-text {
+      fill: var(--text);
+    }
+
+    .svg-muted {
+      fill: var(--muted);
+    }
+
+    /* ═══════════════════════════════════════════════
+   QUICK-REF TABLE
+═══════════════════════════════════════════════ */
+    .qref {
+      margin-top: 30px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--surface);
+      transition: background 0.3s;
+    }
+
+    .qref-hdr {
+      background: var(--ink-hdr);
+      padding: 18px 28px;
+      transition: background 0.3s;
+    }
+
+    [data-theme="dark"] .qref-hdr {
+      background: #0a0c10;
+    }
+
+    .qref-hdr .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .qref-hdr .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #f5f2eb;
+    }
+
+    .qref-body {
+      padding: 24px 28px;
+    }
+
+    /* ═══════════════════════════════════════════════
+   SESSION COLOUR HELPERS
+═══════════════════════════════════════════════ */
+    .s3 {
+      --session-accent: var(--s3);
+    }
+
+    .s4 {
+      --session-accent: var(--s4);
+    }
+
+    .s5 {
+      --session-accent: var(--s5);
+    }
+
+    .s6 {
+      --session-accent: var(--s6);
+    }
+
+    .s7 {
+      --session-accent: var(--s7);
+    }
+
+    .s8 {
+      --session-accent: var(--s8);
+    }
+
+    /* ═══════════════════════════════════════════════
+   CASE STUDY STYLES
+═══════════════════════════════════════════════ */
+    .case-study {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .case-study-hdr {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .case-study-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      min-width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .case-study-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .case-study-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--heading);
+      line-height: 1.3;
+    }
+
+    .case-study-body {
+      padding: 20px 24px;
+    }
+
+    .case-study-scenario {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .case-question {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+
+    .case-question:last-of-type {
+      margin-bottom: 16px;
+    }
+
+    .case-q-letter {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: white;
+      margin-top: 1px;
+    }
+
+    .case-hint {
+      background: var(--highlight);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .case-hint strong {
+      color: var(--gold);
+    }
+
+    .session-group-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 36px 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .session-group-label .group-badge {
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: white;
+      font-weight: 500;
+    }
+
+    .session-group-label:first-child {
+      margin-top: 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+   BOTTOM NAV (sub-pages)
+═══════════════════════════════════════════════ */
+    .bottom-nav {
+      max-width: 960px;
+      margin: 30px auto 0;
+      padding: 0 60px 60px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .bottom-nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 20px;
+      cursor: pointer;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.25s;
+      text-decoration: none;
+      flex: 1;
+      max-width: 48%;
+    }
+
+    .bottom-nav-btn:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .bottom-nav-btn.next {
+      text-align: right;
+      justify-content: flex-end;
+      margin-left: auto;
+    }
+
+    .bottom-nav-btn .nav-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+    }
+
+    .bottom-nav-btn .nav-title {
+      display: block;
+      color: var(--heading);
+    }
+
+    .bottom-nav-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--muted);
+      stroke-width: 2;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+    @media (max-width: 700px) {
+      .masthead {
+        padding: 40px 20px 32px;
+      }
+
+      .masthead h1 {
+        font-size: 28px;
+      }
+
+      .session-cards-grid {
+        padding: 24px 16px 100px;
+        gap: 14px;
+        grid-template-columns: 1fr;
+      }
+
+      .sub-header {
+        padding: 20px 20px 16px;
+      }
+
+      .sub-header .session-title {
+        font-size: 18px;
+      }
+
+      .wrap {
+        padding: 0 20px 80px;
+      }
+
+      .two-col,
+      .three-col,
+      .vs-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .vs-divider {
+        display: none;
+      }
+
+      .theme-toggle {
+        top: 12px;
+        right: 12px;
+        padding: 5px 10px 5px 8px;
+      }
+
+      .toggle-label {
+        display: none;
+      }
+
+      .bottom-nav {
+        padding: 0 16px 100px;
+        flex-direction: column;
+      }
+
+      .bottom-nav-btn {
+        max-width: 100%;
+      }
+
+      .session-card-arrow {
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .def-item {
+        grid-template-columns: 1fr;
+      }
+
+      .def-term {
+        white-space: normal;
+      }
+
+      .t {
+        font-size: 12px;
+      }
+
+      .t th,
+      .t td {
+        padding: 8px 10px;
+      }
+
+      .qref-body {
+        padding: 16px;
+      }
+
+      .diagram {
+        padding: 16px 10px;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+═══════════════════════════════════════════════ */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--gold);
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- ═══ THEME TOGGLE ═══ -->
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" id="theme-toggle-btn">
+    <span class="toggle-icon" id="toggle-icon">🌙</span>
+    <span class="toggle-label" id="toggle-label">Dark</span>
+    <div class="toggle-track">
+      <div class="toggle-knob"></div>
+    </div>
+  </button>
+
+  <!-- ═══ STICKY BACK BUTTON ═══ -->
+  <button class="back-btn" id="back-btn" onclick="showHome()">
+    <svg viewBox="0 0 24 24">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+    <span>All Sessions</span>
+  </button>
+
+  <!-- ═══════════════════════════════════════════════════════
+     PAGE: HOME
+═══════════════════════════════════════════════════════ -->
+  <div class="page active" id="page-home">
+
+    <header class="masthead">
+      <div class="masthead-inner">
+        <div class="masthead-eyebrow">Arab Academy for Science, Technology &amp; Maritime · MBA Program</div>
+        <h1>Human Resource<br>Management —<br><em>Complete Study Guide</em></h1>
+        <p class="masthead-sub">Sessions · Visual Diagrams · Quick-Reference Tables · Exam Tips · Case Studies</p>
+      </div>
+    </header>
+
+    <div class="session-cards-grid">
+
+      <!-- Session 3 Card -->
+      <div class="session-card" style="--card-accent: var(--s3)" onclick="showPage('s3')" id="card-s3">
+        <div class="session-card-inner">
+          <span class="session-card-badge" style="background:var(--s3)">Session 3</span>
+          <div class="session-card-title">Competency-Based HR &amp; Assessment Centers</div>
+          <div class="session-card-desc">From resumes to real capability — the 10/90 iceberg model, competency
+            dictionaries, CBHR pillars, and the STAR interview technique.</div>
+          <div class="session-card-topics">
+            <span class="session-card-topic">Iceberg Model</span>
+            <span class="session-card-topic">Assessment Centers</span>
+            <span class="session-card-topic">STAR Method</span>
+            <span class="session-card-topic">3 Performance Drivers</span>
+          </div>
+        </div>
+        <div class="session-card-arrow"><svg viewBox="0 0 24 24">
+            <polyline points="9 6 15 12 9 18" />
+          </svg></div>
+      </div>
+
+      <!-- Session 4 Card -->
+      <div class="session-card" style="--card-accent: var(--s4)" onclick="showPage('s4')" id="card-s4">
+        <div class="session-card-inner">
+          <span class="session-card-badge" style="background:var(--s4)">Session 4</span>
+          <div class="session-card-title">Job Analysis &amp; Job Design</div>
+          <div class="session-card-desc">The foundation of every HR function — 6-step analysis process, data collection
+            methods, and the enlargement vs enrichment vs rotation strategies.</div>
+          <div class="session-card-topics">
+            <span class="session-card-topic">6-Step Process</span>
+            <span class="session-card-topic">Job Description</span>
+            <span class="session-card-topic">Job Design</span>
+            <span class="session-card-topic">2025 Trends</span>
+          </div>
+        </div>
+        <div class="session-card-arrow"><svg viewBox="0 0 24 24">
+            <polyline points="9 6 15 12 9 18" />
+          </svg></div>
+      </div>
+
+      <!-- Session 5 Card -->
+      <div class="session-card" style="--card-accent: var(--s5)" onclick="showPage('s5')" id="card-s5">
+        <div class="session-card-inner">
+          <span class="session-card-badge" style="background:var(--s5)">Session 5</span>
+          <div class="session-card-title">Recruitment, Selection &amp; Placement</div>
+          <div class="session-card-desc">Building and filtering talent pools — the yield pyramid, forecasting
+            techniques, internal vs external sources, and structured interview design.</div>
+          <div class="session-card-topics">
+            <span class="session-card-topic">Yield Pyramid</span>
+            <span class="session-card-topic">AIDA Formula</span>
+            <span class="session-card-topic">9 External Sources</span>
+            <span class="session-card-topic">Interview Types</span>
+          </div>
+        </div>
+        <div class="session-card-arrow"><svg viewBox="0 0 24 24">
+            <polyline points="9 6 15 12 9 18" />
+          </svg></div>
+      </div>
+
+      <!-- Session 6 Card -->
+      <div class="session-card" style="--card-accent: var(--s6)" onclick="showPage('s6')" id="card-s6">
+        <div class="session-card-inner">
+          <span class="session-card-badge" style="background:var(--s6)">Session 6</span>
+          <div class="session-card-title">Performance Management &amp; Appraisal</div>
+          <div class="session-card-desc">From periodic events to continuous systems — SMART goals, 10 appraisal methods,
+            rating errors, BARS, and 360° feedback.</div>
+          <div class="session-card-topics">
+            <span class="session-card-topic">SMART Goals</span>
+            <span class="session-card-topic">10 Methods</span>
+            <span class="session-card-topic">BARS</span>
+            <span class="session-card-topic">5 Rating Errors</span>
+          </div>
+        </div>
+        <div class="session-card-arrow"><svg viewBox="0 0 24 24">
+            <polyline points="9 6 15 12 9 18" />
+          </svg></div>
+      </div>
+
+      <!-- Session 7 Card -->
+      <div class="session-card" style="--card-accent: var(--s7)" onclick="showPage('s7')" id="card-s7">
+        <div class="session-card-inner">
+          <span class="session-card-badge" style="background:var(--s7)">Session 7</span>
+          <div class="session-card-title">Training &amp; Developing Employees</div>
+          <div class="session-card-desc">The ADDIE model, training needs diagnosis, on-the-job vs off-the-job methods,
+            and Lewin's 3-stage change management framework.</div>
+          <div class="session-card-topics">
+            <span class="session-card-topic">ADDIE Model</span>
+            <span class="session-card-topic">2×2 Matrix</span>
+            <span class="session-card-topic">Lewin's Model</span>
+            <span class="session-card-topic">OJT Methods</span>
+          </div>
+        </div>
+        <div class="session-card-arrow"><svg viewBox="0 0 24 24">
+            <polyline points="9 6 15 12 9 18" />
+          </svg></div>
+      </div>
+
+      <!-- Exam Prep Card -->
+      <div class="session-card" style="--card-accent: var(--accent)" onclick="showPage('exam')" id="card-exam">
+        <div class="session-card-inner">
+          <span class="session-card-badge" style="background:var(--accent)">Exam Prep</span>
+          <div class="session-card-title">Case Study Practice Questions</div>
+          <div class="session-card-desc">Apply theory to realistic scenarios — 7 in-depth case studies spanning all
+            sessions with structured questions and exam-style hints.</div>
+          <div class="session-card-topics">
+            <span class="session-card-topic">AC Design</span>
+            <span class="session-card-topic">CBHR Implementation</span>
+            <span class="session-card-topic">Recruitment Strategy</span>
+            <span class="session-card-topic">Appraisal Overhaul</span>
+            <span class="session-card-topic">Training Diagnosis</span>
+          </div>
+        </div>
+        <div class="session-card-arrow"><svg viewBox="0 0 24 24">
+            <polyline points="9 6 15 12 9 18" />
+          </svg></div>
+      </div>
+
+      <!-- Quick Reference Card -->
+      <div class="session-card qref-card" style="--card-accent: var(--gold)" onclick="showPage('qref')" id="card-qref">
+        <div class="session-card-inner">
+          <span class="session-card-badge" style="background:var(--gold)">Reference</span>
+          <div class="session-card-title">Quick Reference — Critical Numbers &amp; Key Facts</div>
+          <div class="session-card-desc">All critical statistics, percentages, frameworks, and key exam facts from
+            Sessions 3–8 in one consolidated reference table.</div>
+        </div>
+        <div class="session-card-arrow"><svg viewBox="0 0 24 24">
+            <polyline points="9 6 15 12 9 18" />
+          </svg></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+     PAGE: SESSION 3
+═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-s3">
+    <div class="sub-header">
+      <div class="sub-header-inner">
+        <span class="session-badge" style="background:var(--s3)">Session 3</span>
+        <div class="session-title">Competency-Based HR &amp; Assessment Centers</div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="session s3">
+        <p class="session-intro">This session introduces competency as the fundamental currency of modern HR — shifting
+          the lens from <em>what a person has done</em> to <em>what a person is capable of doing</em>, and explains how
+          Assessment Centers provide a multi-method environment to observe that capability directly.</p>
+        <div class="session-body">
+
+          <div class="sec">
+            <div class="sec-heading">Core Definitions</div>
+            <div class="def-list">
+              <div class="def-item"><span class="def-term">Competency</span><span>A cluster of related, measurable
+                  abilities, skills, knowledge, expertise, commitments, and personality traits that enable a person to
+                  perform successfully in a job or situation.</span></div>
+              <div class="def-item"><span class="def-term">Assessment Center</span><span>A standardized evaluation using
+                  multiple tools and trained assessors to measure complex behavioral competencies. Goal: assess what
+                  candidates will <em>actually do</em>, not just how well they interview.</span></div>
+              <div class="def-item"><span class="def-term">Psychometric Assessment</span><span>Tests developed by
+                  trained psychologists measuring cognitive ability (abstract, verbal, numerical reasoning),
+                  personality, and interests. Can be standalone or part of an AC.</span></div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Why Competency-Based HR Exists</div>
+            <div class="theory" style="--session-accent:var(--s3)">
+              <div class="theory-title">The Problem with Traditional Hiring</div>
+              <p>Traditional selection relied on resumes, education credentials, and short interviews — instruments that
+                reveal only ~10% of a person. The 90% that drives real performance (reasoning style, motivations,
+                behavioral patterns under pressure) remained invisible.</p>
+              <p>Assessment Centers were originally developed for military intelligence officer selection, because those
+                roles demanded complex behaviors no single test could capture. The solution: observe candidates
+                <strong>multiple times, in multiple realistic scenarios, rated by multiple trained assessors.</strong>
+              </p>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Visual — The Total Person / 10–90 Iceberg</div>
+            <div class="diagram">
+              <div class="diagram-title">What Standard Hiring Sees vs What Assessment Centers Reach</div>
+              <svg viewBox="0 0 620 330" width="620" height="330" xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="165" x2="620" y2="165" stroke="#888" stroke-width="1" stroke-dasharray="6,4"
+                  opacity="0.4" />
+                <text x="544" y="158" font-family="IBM Plex Mono,monospace" font-size="9" fill="#888"
+                  letter-spacing="1">VISIBLE</text>
+                <text x="534" y="177" font-family="IBM Plex Mono,monospace" font-size="9" fill="#888"
+                  letter-spacing="1">HIDDEN</text>
+                <polygon points="310,28 207,165 413,165" fill="none" stroke="#c8422a" stroke-width="1.5"
+                  opacity="0.8" />
+                <polygon points="207,165 127,305 493,305 413,165" fill="none" stroke="#2a6db5" stroke-width="1.5"
+                  opacity="0.6" />
+                <text x="310" y="82" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14"
+                  font-weight="600" fill="#c8422a">10%</text>
+                <text x="310" y="104" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  fill="#888">Resume · Education</text>
+                <text x="310" y="120" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  fill="#888">Appearance · Referrals · Work History</text>
+                <text x="310" y="142" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#c8422a" opacity="0.7">← Standard hiring tools reach this</text>
+                <text x="310" y="220" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14"
+                  font-weight="600" fill="#2a6db5">90%</text>
+                <text x="310" y="245" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  fill="#888">Thinking &amp; Reasoning Style</text>
+                <text x="310" y="263" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  fill="#888">Occupational Interests</text>
+                <text x="310" y="281" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  fill="#888">Behavioral Traits &amp; Attitude</text>
+                <text x="310" y="299" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#2a6db5" opacity="0.8">← Assessment Centers reach this layer</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">The 3 Performance Drivers</div>
+            <div class="three-col">
+              <div class="card">
+                <div class="card-num" style="color:var(--s3)">01</div>
+                <div class="card-title">Ability</div>
+                <div class="card-body">Cognitive and technical capacity — skills, knowledge, reasoning. An employee may
+                  want to perform but lack the tools. Ability is what training and education develop.</div>
+              </div>
+              <div class="card">
+                <div class="card-num" style="color:var(--s3)">02</div>
+                <div class="card-title">Willingness</div>
+                <div class="card-body">Motivation, attitude, engagement. An employee may be fully capable but
+                  disengaged. Lives mostly in the subconscious — invisible on a CV. This is what behavioral interviews
+                  surface.</div>
+              </div>
+              <div class="card">
+                <div class="card-num" style="color:var(--s3)">03</div>
+                <div class="card-title">External Factors</div>
+                <div class="card-body">Resources, tools, leadership quality, team dynamics. Even a capable, willing
+                  employee underperforms when the environment fails them. Often misdiagnosed as a people problem.</div>
+              </div>
+            </div>
+            <div class="callout"><strong>Manager insight:</strong> Before training, incentivizing, or replacing someone
+              — identify <em>which</em> driver is failing. Training fixes Ability. Rewards fix Willingness. Process
+              redesign fixes External Factors. Misdiagnosing wastes resources.</div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Visual — Assessment Center Tools Map</div>
+            <div class="diagram">
+              <div class="diagram-title">6 AC Tools and the Competencies They Target</div>
+              <svg viewBox="0 0 680 350" width="680" height="350" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="340" cy="180" r="52" fill="none" stroke="#c8422a" stroke-width="2" />
+                <text x="340" y="175" text-anchor="middle" font-family="Syne,sans-serif" font-size="12"
+                  font-weight="700" fill="#c8422a">Assessment</text>
+                <text x="340" y="192" text-anchor="middle" font-family="Syne,sans-serif" font-size="12"
+                  font-weight="700" fill="#c8422a">Center</text>
+                <line x1="340" y1="128" x2="340" y2="68" stroke="#888" stroke-width="1" opacity="0.4" />
+                <line x1="300" y1="148" x2="188" y2="100" stroke="#888" stroke-width="1" opacity="0.4" />
+                <line x1="300" y1="210" x2="168" y2="268" stroke="#888" stroke-width="1" opacity="0.4" />
+                <line x1="340" y1="232" x2="340" y2="298" stroke="#888" stroke-width="1" opacity="0.4" />
+                <line x1="380" y1="210" x2="510" y2="268" stroke="#888" stroke-width="1" opacity="0.4" />
+                <line x1="380" y1="148" x2="490" y2="100" stroke="#888" stroke-width="1" opacity="0.4" />
+                <rect x="250" y="10" width="180" height="56" rx="8" fill="none" stroke="#888" opacity="0.5" />
+                <text x="340" y="33" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  font-weight="600" fill="#888">Individual Presentation</text>
+                <text x="340" y="52" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888" opacity="0.8">Communication · Influence · Thinking</text>
+                <rect x="58" y="66" width="152" height="56" rx="8" fill="none" stroke="#888" opacity="0.5" />
+                <text x="134" y="89" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  font-weight="600" fill="#888">Case Study</text>
+                <text x="134" y="108" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888" opacity="0.8">Analysis · Logic · Problem Solving</text>
+                <rect x="28" y="246" width="152" height="56" rx="8" fill="none" stroke="#888" opacity="0.5" />
+                <text x="104" y="268" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  font-weight="600" fill="#888">Role Play</text>
+                <text x="104" y="287" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888" opacity="0.8">Communication · Persuasion · IQ</text>
+                <rect x="252" y="298" width="176" height="46" rx="8" fill="none" stroke="#888" opacity="0.5" />
+                <text x="340" y="319" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  font-weight="600" fill="#888">Group Discussion</text>
+                <text x="340" y="337" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888" opacity="0.8">Leadership · Teamwork · Collaboration</text>
+                <rect x="500" y="246" width="162" height="56" rx="8" fill="none" stroke="#888" opacity="0.5" />
+                <text x="581" y="268" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  font-weight="600" fill="#888">In-Tray Exercise</text>
+                <text x="581" y="287" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888" opacity="0.8">Time Mgmt · Decision Making</text>
+                <rect x="470" y="66" width="178" height="56" rx="8" fill="none" stroke="#888" opacity="0.5" />
+                <text x="559" y="89" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  font-weight="600" fill="#888">Behavioral Interview (CBI)</text>
+                <text x="559" y="108" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888" opacity="0.8">STAR · Professional Behaviors</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Competency Dictionary Structure</div>
+            <div class="three-col">
+              <div class="card">
+                <div class="card-title">Core Competencies</div>
+                <div class="card-body">Source: Org Vision/Mission/Values. Applied to ALL functions at ALL levels.</div>
+              </div>
+              <div class="card">
+                <div class="card-title">Leadership Competencies</div>
+                <div class="card-body">Source: Management Committee. Applied to ALL functions at MANAGEMENT levels only.
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-title">Functional Competencies</div>
+                <div class="card-body">Source: Job Descriptions. Applied to SPECIFIC functions at all levels.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">CBHR Framework — 4 Pillars</div>
+            <div class="theory" style="--session-accent:var(--s3)">
+              <div class="theory-title">The Core Paradigm Shift: Job-Centered → Output-Centered</div>
+              <p>Traditional HR focuses on job descriptions and tasks. CBHR focuses on the outputs of <em>exemplary
+                  performers</em> and maps back to the competencies that produce those outputs. This transforms HR from
+                an administrative cost center into a strategic value driver.</p>
+            </div>
+            <div class="vs-wrap">
+              <div class="vs-col">
+                <div class="vs-label" style="color:var(--muted)">Traditional (Job-Based)</div>
+                <div class="vs-item"><b>Focus:</b> Job descriptions &amp; task lists</div>
+                <div class="vs-item"><b>Approach:</b> Reactive — fill vacancies as they arise</div>
+                <div class="vs-item"><b>Evaluation:</b> Effort and time spent</div>
+                <div class="vs-item"><b>Development:</b> Generic training catalog</div>
+                <div class="vs-item"><b>Pay:</b> Based on seniority and job title</div>
+              </div>
+              <div class="vs-divider">VS</div>
+              <div class="vs-col">
+                <div class="vs-label" style="color:var(--s3)">Modern (Competency-Based)</div>
+                <div class="vs-item"><b>Focus:</b> Competency models &amp; measurable results</div>
+                <div class="vs-item"><b>Approach:</b> Proactive — anticipate future skill needs</div>
+                <div class="vs-item"><b>Evaluation:</b> Measurable productivity &amp; outcomes</div>
+                <div class="vs-item"><b>Development:</b> Targeted IDPs to close specific gaps</div>
+                <div class="vs-item"><b>Pay:</b> Based on competency mastery and impact</div>
+              </div>
+            </div>
+            <div style="margin-top:14px">
+              <div class="steps">
+                <div class="step"><strong>Strategic Recruitment &amp; Selection</strong> — Hire for outputs of exemplary
+                  performers, not task history. Use behavioral assessments.</div>
+                <div class="step"><strong>Dynamic Performance Management</strong> — Continuous feedback, competency
+                  assessment, productivity metrics. Not annual rituals.</div>
+                <div class="step"><strong>Rewards for Exemplary Performance</strong> — Pay tied to competency mastery
+                  and measurable productivity, not just tenure or title.</div>
+                <div class="step"><strong>Individual Development Plans (IDP)</strong> — Personalized roadmap to close
+                  competency gaps. Lifelong learning mindset.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">CBI Interview — STAR Technique</div>
+            <div class="concept-box"><strong>STAR Method:</strong> Situation → Task → Action → Result. Always probe with
+              open questions (never leading or closed). Use the OPEN PROBE → Information Exchange → STAR → CHECK →
+              Reflect Back cycle.</div>
+            <ul class="bl">
+              <li>Ask open-ended questions; avoid leading/multiple/personal questions</li>
+              <li>Summarize what the applicant says; pause after every question</li>
+              <li>Look for trends and supportive evidence across answers</li>
+              <li>Do not argue or give advice to the interviewee</li>
+            </ul>
+          </div>
+
+          <div class="exam-tip"><span class="exam-tip-icon">⚡</span>
+            <div><strong>Exam Focus:</strong> The 10/90 model, 3 performance drivers (ability/willingness/external), all
+              6 AC tools with competencies, competency dictionary (core/leadership/functional), the 4 CBHR pillars, and
+              the paradigm shift from job-based to output-centered management.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <div></div>
+      <button class="bottom-nav-btn next" onclick="showPage('s4')">
+        <div><span class="nav-label">Next Session →</span><span class="nav-title">S4 · Job Analysis &amp; Design</span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+     PAGE: SESSION 4
+═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-s4">
+    <div class="sub-header">
+      <div class="sub-header-inner">
+        <span class="session-badge" style="background:var(--s4)">Session 4</span>
+        <div class="session-title">Job Analysis &amp; Job Design</div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="session s4">
+        <p class="session-intro">Job Analysis is the foundation of almost every HR function. You cannot recruit, train,
+          evaluate, or fairly compensate without first knowing precisely what a job requires. This session explains both
+          the process and the trends reshaping it.</p>
+        <div class="session-body">
+
+          <div class="sec">
+            <div class="sec-heading">Core Definitions</div>
+            <div class="def-list">
+              <div class="def-item"><span class="def-term">Job Analysis</span><span>Procedure to determine the duties,
+                  skill requirements, and type of person needed for a job — the master HR tool.</span></div>
+              <div class="def-item"><span class="def-term">Job Description</span><span>List of a job's duties,
+                  responsibilities, reporting relationships, working conditions, and supervisory
+                  responsibilities.</span></div>
+              <div class="def-item"><span class="def-term">Job Specification</span><span>List of the job's "human
+                  requirements" — the requisite education, skills, and personality.</span></div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Visual — Job Analysis as the HR Foundation</div>
+            <div class="diagram">
+              <div class="diagram-title">Information Flow: Job Analysis → All HR Functions</div>
+              <svg viewBox="0 0 680 260" width="680" height="260" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+                    <path d="M0,0 L6,3 L0,6 Z" fill="#888" opacity="0.5" />
+                  </marker>
+                </defs>
+                <rect x="240" y="96" width="200" height="68" rx="10" fill="none" stroke="#2a6db5" stroke-width="2" />
+                <text x="340" y="124" text-anchor="middle" font-family="Syne,sans-serif" font-size="13"
+                  font-weight="700" fill="#2a6db5">JOB ANALYSIS</text>
+                <text x="340" y="143" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888">Job Description + Job Specification</text>
+                <line x1="240" y1="120" x2="136" y2="56" stroke="#888" stroke-width="1.5" opacity="0.5"
+                  marker-end="url(#arr)" />
+                <rect x="18" y="28" width="118" height="40" rx="6" fill="none" stroke="#888" opacity="0.4" />
+                <text x="77" y="50" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  font-weight="600" fill="#888">Recruitment</text>
+                <text x="77" y="64" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888" opacity="0.8">&amp; Selection</text>
+                <line x1="278" y1="96" x2="198" y2="28" stroke="#888" stroke-width="1.5" opacity="0.5"
+                  marker-end="url(#arr)" />
+                <rect x="142" y="4" width="112" height="38" rx="6" fill="none" stroke="#888" opacity="0.4" />
+                <text x="198" y="26" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  font-weight="600" fill="#888">Training</text>
+                <text x="198" y="40" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888" opacity="0.8">Requirements</text>
+                <line x1="340" y1="96" x2="340" y2="28" stroke="#888" stroke-width="1.5" opacity="0.5"
+                  marker-end="url(#arr)" />
+                <rect x="278" y="4" width="124" height="38" rx="6" fill="none" stroke="#888" opacity="0.4" />
+                <text x="340" y="26" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  font-weight="600" fill="#888">Performance</text>
+                <text x="340" y="40" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888" opacity="0.8">Appraisal</text>
+                <line x1="403" y1="96" x2="484" y2="28" stroke="#888" stroke-width="1.5" opacity="0.5"
+                  marker-end="url(#arr)" />
+                <rect x="420" y="4" width="130" height="38" rx="6" fill="none" stroke="#888" opacity="0.4" />
+                <text x="485" y="22" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  font-weight="600" fill="#888">Compensation</text>
+                <text x="485" y="40" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888" opacity="0.8">Job Evaluation &amp; Pay</text>
+                <line x1="440" y1="120" x2="556" y2="56" stroke="#888" stroke-width="1.5" opacity="0.5"
+                  marker-end="url(#arr)" />
+                <rect x="540" y="28" width="122" height="40" rx="6" fill="none" stroke="#888" opacity="0.4" />
+                <text x="601" y="50" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  font-weight="600" fill="#888">EEO</text>
+                <text x="601" y="64" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888" opacity="0.8">Compliance</text>
+                <text x="340" y="208" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9"
+                  letter-spacing="2" fill="#888">DATA COLLECTION METHODS</text>
+                <line x1="260" y1="164" x2="120" y2="228" stroke="#888" stroke-width="1" opacity="0.3" />
+                <line x1="300" y1="164" x2="252" y2="228" stroke="#888" stroke-width="1" opacity="0.3" />
+                <line x1="380" y1="164" x2="432" y2="228" stroke="#888" stroke-width="1" opacity="0.3" />
+                <line x1="420" y1="164" x2="558" y2="228" stroke="#888" stroke-width="1" opacity="0.3" />
+                <text x="120" y="248" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  fill="#888">Interviews</text>
+                <text x="252" y="248" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  fill="#888">Questionnaires</text>
+                <text x="432" y="248" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  fill="#888">Observation</text>
+                <text x="558" y="248" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  fill="#888">Diaries/Logs</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">6 Steps in Job Analysis</div>
+            <div class="steps">
+              <div class="step">Decide how you'll use the information</div>
+              <div class="step">Review relevant background information</div>
+              <div class="step">Select representative positions</div>
+              <div class="step">Actually analyze the job</div>
+              <div class="step">Verify the job analysis information</div>
+              <div class="step">Develop job description and job specification</div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Data Collection Methods — Pros &amp; Cons</div>
+            <div class="table-wrap">
+              <table class="t">
+                <tr>
+                  <th>Method</th>
+                  <th>Advantages</th>
+                  <th>Disadvantages</th>
+                </tr>
+                <tr>
+                  <td><strong>Interviews</strong> (individual/group/supervisor)</td>
+                  <td>Quick; uncovers overlooked info</td>
+                  <td>Distorted information</td>
+                </tr>
+                <tr>
+                  <td><strong>Questionnaires</strong> (structured/open-ended)</td>
+                  <td>Fast for large groups</td>
+                  <td>Expensive &amp; time-consuming to develop</td>
+                </tr>
+                <tr>
+                  <td><strong>Observation</strong></td>
+                  <td>First-hand; reduces distortion</td>
+                  <td>Time-consuming; reactivity; misses mental work</td>
+                </tr>
+                <tr>
+                  <td><strong>Diaries/Logs</strong></td>
+                  <td>Complete picture; employee participation</td>
+                  <td>Distortion; depends on recall accuracy</td>
+                </tr>
+                <tr>
+                  <td><strong>Internet-Based</strong></td>
+                  <td>Standardized; dispersed employees; faster</td>
+                  <td>Needs minimal guidance; less interactive</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Job Description Sections</div>
+            <div class="pill-group">
+              <span class="pill">Job Identification (title, date, FLSA)</span>
+              <span class="pill">Job Summary</span>
+              <span class="pill">Relationships (reports to / supervises)</span>
+              <span class="pill">Responsibilities &amp; Duties</span>
+              <span class="pill">Authority &amp; Decision-Making</span>
+              <span class="pill">Standards of Performance</span>
+              <span class="pill">Working Conditions</span>
+              <span class="pill">Job Specifications</span>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Job Design — Theory &amp; 3 Strategies</div>
+            <div class="theory" style="--session-accent:var(--s4)">
+              <div class="theory-title">The Logic of Job Design</div>
+              <p>Job design determines how work is structured to maximize both organizational productivity and employee
+                motivation. The three strategies differ in <em>direction</em>: horizontal (more tasks at the same
+                level), vertical (more responsibility and autonomy), or lateral (movement across roles).</p>
+            </div>
+            <div class="three-col">
+              <div class="card">
+                <div class="card-num" style="color:var(--s4)">↔</div>
+                <div class="card-title">Job Enlargement</div>
+                <div class="card-body"><strong>Horizontal expansion.</strong> Adding more tasks at the same complexity
+                  level. Reduces monotony but doesn't increase responsibility. More variety, same challenge.</div>
+              </div>
+              <div class="card">
+                <div class="card-num" style="color:var(--s4)">↑</div>
+                <div class="card-title">Job Enrichment</div>
+                <div class="card-body"><strong>Vertical expansion.</strong> Adds decision-making authority, ownership,
+                  and meaningful challenge. Based on Herzberg's motivators: achievement, recognition, growth.</div>
+              </div>
+              <div class="card">
+                <div class="card-num" style="color:var(--s4)">⟳</div>
+                <div class="card-title">Job Rotation</div>
+                <div class="card-body"><strong>Lateral movement.</strong> Moves employees across departments to build
+                  breadth, identify strengths, and prepare high-potentials. Reduces single-point-of-failure risk.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">2025 Trends in Job Analysis</div>
+            <div class="auto-col">
+              <div class="card">
+                <div class="card-title">1. Job → Skill Profiles</div>
+                <div class="card-body">76% of orgs adopting skills-based approach; dynamic skill profiles replace static
+                  JDs</div>
+              </div>
+              <div class="card">
+                <div class="card-title">2. AI Workflow Redesign</div>
+                <div class="card-body">80% deployed AI; only 20% rebuilt workflows. Human-centric redesign is the gap.
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-title">3. Reinvesting AI Capacity</div>
+                <div class="card-body">AI frees time → reinvest into innovation, empathy-led leadership, complex problem
+                  solving</div>
+              </div>
+              <div class="card">
+                <div class="card-title">4. Strategic Segmentation</div>
+                <div class="card-body">Prioritize "critical workforce segments" — high-demand/low-supply skills</div>
+              </div>
+              <div class="card">
+                <div class="card-title">5. Internal Talent Marketplaces</div>
+                <div class="card-body">Flow-based work matching, agile 3-year pathfinder strategies, relational
+                  analytics</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exam-tip"><span class="exam-tip-icon">⚡</span>
+            <div><strong>Exam Focus:</strong> The 6-step job analysis process, 5 data collection methods with pros/cons,
+              sections of a job description, the distinction between enlargement vs enrichment vs rotation, and why
+              competency-based job analysis supports HPWS and strategic JDs.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="showPage('s3')">
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        <div><span class="nav-label">← Previous</span><span class="nav-title">S3 · Competency-Based HR</span></div>
+      </button>
+      <button class="bottom-nav-btn next" onclick="showPage('s5')">
+        <div><span class="nav-label">Next Session →</span><span class="nav-title">S5 · Recruitment &amp;
+            Selection</span></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+     PAGE: SESSION 5
+═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-s5">
+    <div class="sub-header">
+      <div class="sub-header-inner">
+        <span class="session-badge" style="background:var(--s5)">Session 5</span>
+        <div class="session-title">Recruitment, Selection &amp; Placement</div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="session s5">
+        <p class="session-intro">Recruitment generates a pool. Selection filters it. Together they form a sequential
+          series of hurdles — each stage eliminates candidates — culminating in the hiring decision. Understanding the
+          yield at each stage is what makes recruitment planning quantitative rather than guesswork.</p>
+        <div class="session-body">
+
+          <div class="sec">
+            <div class="sec-heading">The 5-Step Recruitment &amp; Selection Process</div>
+            <div class="steps">
+              <div class="step">Decide what positions to fill — personnel planning &amp; forecasting</div>
+              <div class="step">Build candidate pool — recruit internal or external candidates</div>
+              <div class="step">Candidates complete application forms &amp; initial screening interviews</div>
+              <div class="step">Use selection tools to identify viable candidates</div>
+              <div class="step">Decide who to offer — supervisors interview final candidates</div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Visual — The Recruiting Yield Pyramid</div>
+            <div class="diagram">
+              <div class="diagram-title">Filtering from Leads to Hires — Work Backwards from Target</div>
+              <svg viewBox="0 0 500 310" width="500" height="310" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,282 450,282 418,232 82,232" fill="none" stroke="#2d8a55" stroke-width="1.5"
+                  opacity="0.8" />
+                <text x="250" y="260" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11"
+                  font-weight="600" fill="#2d8a55">LEADS GENERATED</text>
+                <text x="250" y="278" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888">e.g. 1,200 applications</text>
+                <polygon points="82,232 418,232 386,182 114,182" fill="none" stroke="#888" stroke-width="1.2"
+                  opacity="0.5" />
+                <text x="250" y="207" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  font-weight="600" fill="#888">CANDIDATES INVITED (16%)</text>
+                <text x="250" y="225" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888" opacity="0.7">Screen via applications &amp; initial interview</text>
+                <polygon points="114,182 386,182 346,132 154,132" fill="none" stroke="#888" stroke-width="1.2"
+                  opacity="0.5" />
+                <text x="250" y="155" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  font-weight="600" fill="#888">INTERVIEWS CONDUCTED (75%)</text>
+                <text x="250" y="173" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888" opacity="0.7">Assessment tools, panels, tests</text>
+                <polygon points="154,132 346,132 306,82 194,82" fill="none" stroke="#888" stroke-width="1.2"
+                  opacity="0.5" />
+                <text x="250" y="105" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11"
+                  font-weight="600" fill="#888">OFFERS EXTENDED (67%)</text>
+                <text x="250" y="123" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888" opacity="0.7">Supervisor final interviews</text>
+                <polygon points="194,82 306,82 276,30 224,30" fill="none" stroke="#2a6db5" stroke-width="1.5"
+                  opacity="0.8" />
+                <text x="250" y="54" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11"
+                  font-weight="600" fill="#2a6db5">HIRES (50%)</text>
+                <text x="250" y="72" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  fill="#888">Final selections</text>
+              </svg>
+            </div>
+            <div class="callout"><strong>Work backwards:</strong> Need 10 hires? 50% offer acceptance = 20 offers. 67%
+              of interviewees get offers = ~30 interviews needed. 75% pass screening = ~40 invited. 16% yield from leads
+              = ~250 leads needed. Plan your sourcing accordingly.</div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Forecasting Techniques</div>
+            <div class="def-list">
+              <div class="def-item"><span class="def-term">Trend Analysis</span><span>Study past employment levels to
+                  predict future needs based on historical staffing patterns.</span></div>
+              <div class="def-item"><span class="def-term">Ratio Analysis</span><span>Use productivity ratios (e.g.,
+                  sales per employee) to project required headcount.</span></div>
+              <div class="def-item"><span class="def-term">Scatter Plot</span><span>Graphically examine the relationship
+                  between a business activity metric and staffing level.</span></div>
+              <div class="def-item"><span class="def-term">Succession Planning</span><span>Process to fill the company's
+                  most important executive jobs — forward-looking talent pipeline.</span></div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Internal vs External Sources</div>
+            <div class="two-col">
+              <div class="card">
+                <div class="card-title" style="margin-bottom:10px">Internal Sources</div>
+                <ul class="bl">
+                  <li>Job postings via HRIS</li>
+                  <li>Rehiring former employees</li>
+                  <li>Succession planning / management replacement charts</li>
+                </ul>
+              </div>
+              <div class="card">
+                <div class="card-title" style="margin-bottom:10px">9 External Sources</div>
+                <div class="pill-group">
+                  <span class="pill">Internet / Job Boards</span>
+                  <span class="pill">Advertising (AIDA)</span>
+                  <span class="pill">Public/Private/Nonprofit Agencies</span>
+                  <span class="pill">Temp &amp; Alternative Staffing</span>
+                  <span class="pill">Offshoring / Outsourcing</span>
+                  <span class="pill">Executive Recruiters</span>
+                  <span class="pill">ODRS</span>
+                  <span class="pill">College Recruiting</span>
+                  <span class="pill">Referrals &amp; Walk-ins</span>
+                </div>
+              </div>
+            </div>
+            <div class="concept-box" style="margin-top:12px"><strong>AIDA Formula for Ads:</strong> <u>A</u>ttention →
+              <u>I</u>nterest → <u>D</u>esire → <u>A</u>ction. Effective job ads must create all four and project a
+              positive firm image.
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Interview Types — Theory &amp; Formats</div>
+            <div class="theory" style="--session-accent:var(--s5)">
+              <div class="theory-title">Why Interview Structure Matters</div>
+              <p>Unstructured interviews have notoriously low predictive validity — interviewers are swayed by
+                appearance, similarity bias, and first impressions. Research shows <strong>structured interviews double
+                  the predictive validity</strong> of unstructured ones. Situational questions ("What would you do
+                if...?") test judgment. Behavioral questions ("Tell me about a time when...") test actual demonstrated
+                behavior — the best predictor of future performance.</p>
+            </div>
+            <div class="table-wrap">
+              <table class="t">
+                <tr>
+                  <th>Dimension</th>
+                  <th>Options</th>
+                </tr>
+                <tr>
+                  <td><strong>Structure</strong></td>
+                  <td>Unstructured (nondirective) / Structured (directive)</td>
+                </tr>
+                <tr>
+                  <td><strong>Content</strong></td>
+                  <td>Situational / Behavioral / Job-Related / Stress</td>
+                </tr>
+                <tr>
+                  <td><strong>Administration</strong></td>
+                  <td>Sequential, Panel, Mass, Computerized, Phone, Video/Web</td>
+                </tr>
+                <tr>
+                  <td><strong>Purpose</strong></td>
+                  <td>Selection / Appraisal / Exit</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Structured Situational Interview — 5 Steps</div>
+            <div class="steps">
+              <div class="step">Analyze the job</div>
+              <div class="step">Rate the job's main duties</div>
+              <div class="step">Create interview questions</div>
+              <div class="step">Create benchmark answers</div>
+              <div class="step">Appoint interview panel &amp; conduct interviews</div>
+            </div>
+          </div>
+
+          <div class="exam-tip"><span class="exam-tip-icon">⚡</span>
+            <div><strong>Exam Focus:</strong> The 5-step process, 3 forecasting tools, yield pyramid logic, 9 external
+              sources, AIDA formula, structured vs unstructured validity difference, 4 interview content types, and the
+              5-step structured situational interview design process.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="showPage('s4')">
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        <div><span class="nav-label">← Previous</span><span class="nav-title">S4 · Job Analysis &amp; Design</span>
+        </div>
+      </button>
+      <button class="bottom-nav-btn next" onclick="showPage('s6')">
+        <div><span class="nav-label">Next Session →</span><span class="nav-title">S6 · Performance Management</span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+     PAGE: SESSION 6
+═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-s6">
+    <div class="sub-header">
+      <div class="sub-header-inner">
+        <span class="session-badge" style="background:var(--s6)">Session 6</span>
+        <div class="session-title">Performance Management &amp; Appraisal</div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="session s6">
+        <p class="session-intro">Performance Appraisal is an event. Performance Management is an ongoing system. The
+          central theoretical insight: PM represents the evolution beyond traditional appraisal — continuous,
+          forward-looking, and strategically aligned rather than periodic and backward-looking.</p>
+        <div class="session-body">
+
+          <div class="sec">
+            <div class="sec-heading">Key Distinction</div>
+            <div class="vs-wrap">
+              <div class="vs-col">
+                <div class="vs-label" style="color:var(--muted)">Performance Appraisal</div>
+                <div class="vs-item"><b>What:</b> Setting standards, assessing performance, providing feedback</div>
+                <div class="vs-item"><b>When:</b> Periodic event (annual/semi-annual)</div>
+                <div class="vs-item"><b>Focus:</b> Backward-looking — "How did you do?"</div>
+                <div class="vs-item"><b>Purpose:</b> Rate and record</div>
+              </div>
+              <div class="vs-divider">VS</div>
+              <div class="vs-col">
+                <div class="vs-label" style="color:var(--s6)">Performance Management</div>
+                <div class="vs-item"><b>What:</b> Integrated approach ensuring performance supports strategic aims</div>
+                <div class="vs-item"><b>When:</b> Continuous, ongoing process</div>
+                <div class="vs-item"><b>Focus:</b> Forward-looking — "How do we improve?"</div>
+                <div class="vs-item"><b>Purpose:</b> Develop and align</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Visual — Appraisal Events vs Continuous PM</div>
+            <div class="diagram">
+              <div class="diagram-title">Traditional Appraisal (Isolated Events) vs Performance Management (Continuous)
+              </div>
+              <svg viewBox="0 0 680 160" width="680" height="160" xmlns="http://www.w3.org/2000/svg">
+                <text x="20" y="36" font-family="IBM Plex Mono,monospace" font-size="10" fill="#888"
+                  letter-spacing="1">APPRAISAL</text>
+                <line x1="60" y1="56" x2="620" y2="56" stroke="#888" stroke-width="1.5" opacity="0.4" />
+                <circle cx="150" cy="56" r="9" fill="#8b3fa8" opacity="0.5" />
+                <circle cx="340" cy="56" r="9" fill="#8b3fa8" opacity="0.5" />
+                <circle cx="530" cy="56" r="9" fill="#8b3fa8" opacity="0.5" />
+                <text x="150" y="40" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888">Annual Review</text>
+                <text x="340" y="40" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888">Annual Review</text>
+                <text x="530" y="40" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888">Annual Review</text>
+                <text x="340" y="72" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9"
+                  fill="#8b3fa8" letter-spacing="1">ISOLATED EVENTS — GAPS IN BETWEEN</text>
+                <text x="20" y="114" font-family="IBM Plex Mono,monospace" font-size="10" fill="#888"
+                  letter-spacing="1">PM</text>
+                <rect x="60" y="104" width="560" height="18" rx="9" fill="#8b3fa8" opacity="0.3" />
+                <rect x="60" y="104" width="560" height="18" rx="9" fill="url(#pmg)" opacity="0.5" />
+                <defs>
+                  <linearGradient id="pmg" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#8b3fa8;stop-opacity:0.4" />
+                    <stop offset="100%" style="stop-color:#8b3fa8;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <text x="340" y="134" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9"
+                  fill="#8b3fa8" letter-spacing="1">CONTINUOUS — DIRECTION SHARING · FEEDBACK · COACHING ·
+                  REWARDS</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">SMART Goals</div>
+            <div class="pill-group">
+              <span class="pill hi">Specific</span><span class="pill hi">Measurable</span><span
+                class="pill hi">Attainable</span><span class="pill hi">Relevant</span><span
+                class="pill hi">Timely</span>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">The 10 Appraisal Methods — Full Comparison</div>
+            <div class="table-wrap">
+              <table class="t">
+                <tr>
+                  <th>Method</th>
+                  <th>Advantage</th>
+                  <th>Disadvantage</th>
+                </tr>
+                <tr>
+                  <td><strong>Graphic Rating Scale</strong></td>
+                  <td>Simple; quantitative rating</td>
+                  <td>Unclear standards; halo effect; central tendency; leniency/strictness; bias</td>
+                </tr>
+                <tr>
+                  <td><strong>BARS</strong> — Behaviorally Anchored Rating Scale</td>
+                  <td>Behavioral anchors; most accurate; clearer standards; independent dimensions; feedback</td>
+                  <td>Difficult and time-consuming to develop</td>
+                </tr>
+                <tr>
+                  <td><strong>Alternation Ranking</strong></td>
+                  <td>Simple; avoids central tendency</td>
+                  <td>Can cause disagreements; unfair if all are excellent</td>
+                </tr>
+                <tr>
+                  <td><strong>Paired Comparison</strong></td>
+                  <td>Systematic ranking against each peer</td>
+                  <td>Impractical for large groups</td>
+                </tr>
+                <tr>
+                  <td><strong>Forced Distribution</strong></td>
+                  <td>Predetermined % in each group</td>
+                  <td>Results depend on choice of cutoff points</td>
+                </tr>
+                <tr>
+                  <td><strong>Critical Incident</strong></td>
+                  <td>Specifies right/wrong behaviors; ongoing eval</td>
+                  <td>Difficult to rank employees relative to each other</td>
+                </tr>
+                <tr>
+                  <td><strong>Narrative Forms</strong></td>
+                  <td>Qualitative depth</td>
+                  <td>Subjective; hard to compare across employees</td>
+                </tr>
+                <tr>
+                  <td><strong>MBO</strong> — Management by Objectives</td>
+                  <td>Tied to jointly agreed objectives; strategic alignment</td>
+                  <td>Time-consuming; conflict over objectives; unclear goals risk</td>
+                </tr>
+                <tr>
+                  <td><strong>Computerized / Web-Based</strong></td>
+                  <td>Note-keeping; EPM; self-monitoring</td>
+                  <td>Privacy concerns; potential over-monitoring</td>
+                </tr>
+                <tr>
+                  <td><strong>Merged Methods</strong></td>
+                  <td>Combines strengths of multiple tools</td>
+                  <td>Complexity increases</td>
+                </tr>
+              </table>
+            </div>
+            <div class="theory" style="--session-accent:var(--s6); margin-top:14px">
+              <div class="theory-title">Why BARS Is the Gold Standard</div>
+              <p>BARS replaces vague descriptors ("excellent," "poor") with concrete behavioral examples at each rating
+                level. When a manager gives a "3," everyone — manager, employee, auditor — knows exactly what behavior
+                that means. This eliminates ambiguity that makes most rating scales legally and statistically weak.
+                Developing BARS: write critical incidents → develop dimensions → reallocate incidents → scale them →
+                finalize instrument.</p>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Visual — The 5 Rating Errors on a Scale</div>
+            <div class="diagram">
+              <div class="diagram-title">Where Each Bias Clusters on a 1–5 Rating Scale</div>
+              <svg viewBox="0 0 680 240" width="680" height="240" xmlns="http://www.w3.org/2000/svg">
+                <text x="30" y="26" font-family="IBM Plex Mono,monospace" font-size="9" fill="#888"
+                  letter-spacing="1">BIAS</text>
+                <text x="200" y="26" font-family="IBM Plex Mono,monospace" font-size="9" fill="#888">1</text>
+                <text x="292" y="26" font-family="IBM Plex Mono,monospace" font-size="9" fill="#888">2</text>
+                <text x="384" y="26" font-family="IBM Plex Mono,monospace" font-size="9" fill="#888">3</text>
+                <text x="476" y="26" font-family="IBM Plex Mono,monospace" font-size="9" fill="#888">4</text>
+                <text x="568" y="26" font-family="IBM Plex Mono,monospace" font-size="9" fill="#888">5</text>
+                <line x1="193" y1="32" x2="590" y2="32" stroke="#888" stroke-width="1" opacity="0.4" />
+                <text x="30" y="58" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="600"
+                  fill="#888">Leniency</text>
+                <text x="30" y="71" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#888" opacity="0.7">All
+                  rated too high</text>
+                <rect x="430" y="46" width="148" height="14" rx="5" fill="#8b3fa8" opacity="0.5" />
+                <text x="504" y="57" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9"
+                  fill="white">4–5 range</text>
+                <text x="30" y="100" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="600"
+                  fill="#888">Strictness</text>
+                <text x="30" y="113" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#888" opacity="0.7">All
+                  rated too low</text>
+                <rect x="193" y="88" width="148" height="14" rx="5" fill="#c8422a" opacity="0.5" />
+                <text x="267" y="99" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9"
+                  fill="white">1–2 range</text>
+                <text x="30" y="142" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="600"
+                  fill="#888">Central Tendency</text>
+                <text x="30" y="155" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#888" opacity="0.7">All
+                  rated "average"</text>
+                <rect x="338" y="130" width="100" height="14" rx="5" fill="#2a6db5" opacity="0.5" />
+                <text x="388" y="141" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9"
+                  fill="white">3 range</text>
+                <text x="30" y="184" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="600"
+                  fill="#888">Halo Effect</text>
+                <text x="30" y="197" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#888" opacity="0.7">One
+                  trait shapes all</text>
+                <rect x="430" y="172" width="148" height="14" rx="5" fill="#2d8a55" opacity="0.5" />
+                <text x="504" y="183" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9"
+                  fill="white">uniformly high/low</text>
+                <text x="30" y="224" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="600"
+                  fill="#888">Personal Bias</text>
+                <text x="30" y="237" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#888"
+                  opacity="0.7">Demographics affect score</text>
+                <rect x="193" y="212" width="385" height="14" rx="5" fill="#c67800" opacity="0.3" stroke="#c67800"
+                  stroke-width="1" stroke-dasharray="4,2" />
+                <text x="385" y="223" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9"
+                  fill="#c67800">unpredictable — varies by protected characteristic</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Who Should Appraise?</div>
+            <div class="pill-group">
+              <span class="pill">Immediate Supervisor (most common)</span>
+              <span class="pill">Peers</span>
+              <span class="pill">Self-Rating</span>
+              <span class="pill">Subordinates</span>
+              <span class="pill">Rating Committee</span>
+              <span class="pill hi">360-Degree Feedback</span>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Delivering Criticism — 5 Rules</div>
+            <div class="steps">
+              <div class="step">Maintain the person's dignity and sense of worth</div>
+              <div class="step">Criticize in private, constructively</div>
+              <div class="step">Give daily feedback — no surprises at review time</div>
+              <div class="step">Never say the person is "always" wrong</div>
+              <div class="step">Keep criticism objective and free of bias</div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">2025–2026 PM Trends</div>
+            <div class="auto-col">
+              <div class="card">
+                <div class="card-title">Skills-Based Appraisals</div>
+                <div class="card-body">Measuring "Skill Mastery" &amp; capability growth, not just KPI achievement
+                  (Mercer)</div>
+              </div>
+              <div class="card">
+                <div class="card-title">Human-Centric PM</div>
+                <div class="card-body">Wellbeing + flexibility → 3.2× engagement increase (Gartner)</div>
+              </div>
+              <div class="card">
+                <div class="card-title">AI as Coach</div>
+                <div class="card-body">Real-time nudges from Teams/Slack; AI flags biased language in appraisals (PwC)
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-title">Agile OKRs</div>
+                <div class="card-body">90-day sprints replacing annual goals — KPMG Pathfinder strategy</div>
+              </div>
+              <div class="card">
+                <div class="card-title">70/30 Rule</div>
+                <div class="card-body">70% Developmental (future-focused) / 30% Evaluative (past-focused) — Gartner
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exam-tip"><span class="exam-tip-icon">⚡</span>
+            <div><strong>Exam Focus:</strong> Appraisal vs PM distinction, SMART goals, all 10 methods with pros/cons
+              (especially BARS), the 5 rating errors and how to avoid them, 4 appraisal interview types
+              (Satisfactory-Promotable / Satisfactory-Not Promotable / Unsatisfactory-Correctable /
+              Unsatisfactory-Uncorrectable), MBO's 6-step process, and the building blocks of PM.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="showPage('s5')">
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        <div><span class="nav-label">← Previous</span><span class="nav-title">S5 · Recruitment &amp; Selection</span>
+        </div>
+      </button>
+      <button class="bottom-nav-btn next" onclick="showPage('s7')">
+        <div><span class="nav-label">Next Session →</span><span class="nav-title">S7 · Training &amp; Development</span>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+     PAGE: SESSION 7
+═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-s7">
+    <div class="sub-header">
+      <div class="sub-header-inner">
+        <span class="session-badge" style="background:var(--s7)">Session 7</span>
+        <div class="session-title">Training &amp; Developing Employees</div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="session s7">
+        <p class="session-intro">Training done properly is a four-phase instructional design process: diagnose the need,
+          select the right intervention, deliver it effectively, and measure whether it worked. This session also covers
+          organizational change — because training rarely succeeds without managing the human side of change.</p>
+        <div class="session-body">
+
+          <div class="sec">
+            <div class="sec-heading">Visual — ADDIE Model Full Flow</div>
+            <div class="diagram">
+              <div class="diagram-title">The ADDIE Instructional Design Cycle — With Feedback Loop</div>
+              <svg viewBox="0 0 700 110" width="700" height="110" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <marker id="arr3" markerWidth="5" markerHeight="5" refX="3" refY="2.5" orient="auto">
+                    <path d="M0,0 L5,2.5 L0,5 Z" fill="#888" opacity="0.6" />
+                  </marker>
+                </defs>
+                <rect x="8" y="18" width="118" height="68" rx="8" fill="none" stroke="#c67800" stroke-width="1.5" />
+                <rect x="146" y="18" width="118" height="68" rx="8" fill="none" stroke="#888" opacity="0.5" />
+                <rect x="284" y="18" width="118" height="68" rx="8" fill="none" stroke="#888" opacity="0.5" />
+                <rect x="422" y="18" width="118" height="68" rx="8" fill="none" stroke="#888" opacity="0.5" />
+                <rect x="560" y="18" width="132" height="68" rx="8" fill="none" stroke="#888" opacity="0.5" />
+                <line x1="126" y1="52" x2="146" y2="52" stroke="#888" stroke-width="1.5" opacity="0.5"
+                  marker-end="url(#arr3)" />
+                <line x1="264" y1="52" x2="284" y2="52" stroke="#888" stroke-width="1.5" opacity="0.5"
+                  marker-end="url(#arr3)" />
+                <line x1="402" y1="52" x2="422" y2="52" stroke="#888" stroke-width="1.5" opacity="0.5"
+                  marker-end="url(#arr3)" />
+                <line x1="540" y1="52" x2="560" y2="52" stroke="#888" stroke-width="1.5" opacity="0.5"
+                  marker-end="url(#arr3)" />
+                <path d="M692,52 Q700,100 350,100 Q0,100 8,52" stroke="#888" stroke-width="1" fill="none"
+                  stroke-dasharray="4,3" opacity="0.4" />
+                <text x="67" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14"
+                  font-weight="600" fill="#c67800">A</text>
+                <text x="67" y="58" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  font-weight="600" fill="#888">Assessment</text>
+                <text x="67" y="74" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888" opacity="0.8">Needs Analysis</text>
+                <text x="205" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14"
+                  font-weight="600" fill="#888">D</text>
+                <text x="205" y="58" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  font-weight="600" fill="#888">Design</text>
+                <text x="205" y="74" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888" opacity="0.8">Objectives &amp; Plan</text>
+                <text x="343" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14"
+                  font-weight="600" fill="#888">D</text>
+                <text x="343" y="58" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  font-weight="600" fill="#888">Development</text>
+                <text x="343" y="74" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888" opacity="0.8">Build Content</text>
+                <text x="481" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14"
+                  font-weight="600" fill="#888">I</text>
+                <text x="481" y="58" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  font-weight="600" fill="#888">Implementation</text>
+                <text x="481" y="74" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888" opacity="0.8">Deliver Training</text>
+                <text x="626" y="40" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14"
+                  font-weight="600" fill="#888">E</text>
+                <text x="626" y="58" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="10"
+                  font-weight="600" fill="#888">Evaluation</text>
+                <text x="626" y="74" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9"
+                  fill="#888" opacity="0.8">Measure Outcomes</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Visual — "To Train or Not" 2×2 Matrix</div>
+            <div class="diagram">
+              <div class="diagram-title">Diagnosing Root Cause Before Prescribing Training</div>
+              <div
+                style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+                <div style="padding:18px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);">
+                  <div
+                    style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--s7);margin-bottom:6px">
+                    HIGH KNOWLEDGE · LOW ATTITUDE</div>
+                  <div style="font-size:13px;font-weight:600;color:var(--heading);margin-bottom:4px">Motivation Problem
+                  </div>
+                  <div style="font-size:12.5px;color:var(--muted);line-height:1.5">Employee knows <em>how</em> but
+                    doesn't <em>want</em> to. <strong>Solution: assess rewards &amp; personal consequences
+                      system.</strong></div>
+                </div>
+                <div style="padding:18px;border-bottom:1px solid var(--border);">
+                  <div
+                    style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:6px">
+                    HIGH KNOWLEDGE · HIGH ATTITUDE</div>
+                  <div style="font-size:13px;font-weight:600;color:var(--heading);margin-bottom:4px">Systemic Problem
+                  </div>
+                  <div style="font-size:12.5px;color:var(--muted);line-height:1.5">Capable and willing but still
+                    failing. Issue is the <em>environment</em> — bad tools, unclear process. <strong>Out of employee's
+                      control.</strong></div>
+                </div>
+                <div style="padding:18px;border-right:1px solid var(--border);">
+                  <div
+                    style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--accent);margin-bottom:6px">
+                    LOW KNOWLEDGE · LOW ATTITUDE</div>
+                  <div style="font-size:13px;font-weight:600;color:var(--heading);margin-bottom:4px">Bad Fit</div>
+                  <div style="font-size:12.5px;color:var(--muted);line-height:1.5">Neither capable nor motivated. Likely
+                    improper placement. <strong>Training is not the answer — reconsider the role or hire.</strong></div>
+                </div>
+                <div style="padding:18px;border:2px solid var(--s5);border-radius:0 0 8px 0;margin:-1px;">
+                  <div
+                    style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--s5);margin-bottom:6px">
+                    LOW KNOWLEDGE · HIGH ATTITUDE</div>
+                  <div style="font-size:13px;font-weight:600;color:var(--s5);margin-bottom:4px">✓ Training is the
+                    Solution</div>
+                  <div style="font-size:12.5px;color:var(--muted);line-height:1.5">Wants to perform but lacks the
+                    knowledge. <strong>The only quadrant where training directly solves the problem.</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Training Methods</div>
+            <div class="two-col">
+              <div class="card">
+                <div class="card-title" style="margin-bottom:10px">On-the-Job</div>
+                <ul class="bl">
+                  <li>OJT (On-the-Job Training)</li>
+                  <li>Apprenticeship Training</li>
+                  <li>Job Instruction Training</li>
+                  <li>Informal Learning</li>
+                  <li>Job Rotation</li>
+                  <li>Coaching / Understudy</li>
+                  <li>Action Learning</li>
+                </ul>
+              </div>
+              <div class="card">
+                <div class="card-title" style="margin-bottom:10px">Off-the-Job / Technology</div>
+                <ul class="bl">
+                  <li>Computer-Based Training (CBT)</li>
+                  <li>Internet-Based / e-Learning</li>
+                  <li>Virtual Reality / Simulations</li>
+                  <li>Lectures</li>
+                  <li>Programmed Learning</li>
+                  <li>Vestibule Training</li>
+                  <li>Audiovisual Training</li>
+                  <li>Teletraining / Videoconferencing</li>
+                  <li>EPSS (Electronic Performance Support)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">Lewin's 3-Stage Change Model — Deep Theory</div>
+            <div class="theory" style="--session-accent:var(--s7)">
+              <div class="theory-title">Why Change Fails Without This Framework</div>
+              <p>People's behaviors are held in place by a balance of driving forces and restraining forces. Lewin's
+                model addresses all three stages: creating motivation to change (Unfreeze), making the actual change
+                (Move), and locking in new behaviors so people don't revert (Refreeze).</p>
+              <p><strong>Most failed change initiatives skip Unfreeze</strong> (mandate change without buy-in)
+                <strong>or skip Refreeze</strong> (implement the change but don't reinforce habits, so people drift back
+                within months).
+              </p>
+            </div>
+            <div class="steps">
+              <div class="step"><strong>Unfreeze</strong> — Disrupt the status quo. Create urgency. Mobilize commitment.
+                Help people see why the old way no longer works. Without this, people resist even clearly beneficial
+                changes.</div>
+              <div class="step"><strong>Move (Change)</strong> — Build guiding coalition. Develop &amp; communicate
+                shared vision. Provide resources and training. Consolidate small wins to build momentum.</div>
+              <div class="step"><strong>Refreeze</strong> — Institutionalize the new way. Update systems and policies to
+                reinforce new behaviors. Monitor progress. Recognize and reward people who model the change.</div>
+            </div>
+          </div>
+
+          <div class="sec">
+            <div class="sec-heading">2026–2027 L&amp;D Trends</div>
+            <div class="auto-col">
+              <div class="card">
+                <div class="card-title">Skill Half-Life</div>
+                <div class="card-body">Technical skills: &lt;5 year half-life. 50% of employees need reskilling by 2027
+                  (WEF/McKinsey)</div>
+              </div>
+              <div class="card">
+                <div class="card-title">Learning in the Flow</div>
+                <div class="card-body">Micro-nudges in Teams/Slack; contextual just-in-time learning; not
+                  classroom-based (Gartner)</div>
+              </div>
+              <div class="card">
+                <div class="card-title">VR Effectiveness</div>
+                <div class="card-body">VR learners are 4× faster to train and 275% more confident in applying skills
+                  (PwC)</div>
+              </div>
+              <div class="card">
+                <div class="card-title">LMS → LME</div>
+                <div class="card-body">Learning Management Ecosystem: LXP + Talent Marketplace + Skill Intelligence
+                  Engine</div>
+              </div>
+              <div class="card">
+                <div class="card-title">New ROI Metrics</div>
+                <div class="card-body">Skill Currency, Agility Index, Internal Mobility Rate — not satisfaction scores
+                  ("happy sheets")</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exam-tip"><span class="exam-tip-icon">⚡</span>
+            <div><strong>Exam Focus:</strong> ADDIE model steps, the 4-box training needs matrix (only Low Knowledge +
+              High Attitude = training), key on-the-job vs off-the-job methods, Lewin's 3-stage change process and why
+              each stage matters, succession planning steps, task analysis (new employees) vs performance analysis
+              (current employees), and the "can't-do or won't-do" diagnostic question.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="showPage('s6')">
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        <div><span class="nav-label">← Previous</span><span class="nav-title">S6 · Performance Management</span></div>
+      </button>
+      <button class="bottom-nav-btn next" onclick="showPage('exam')">
+        <div><span class="nav-label">Next →</span><span class="nav-title">Exam Prep · Case Studies</span></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+     PAGE: EXAM PREPARATION
+═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-exam">
+    <div class="sub-header">
+      <div class="sub-header-inner">
+        <span class="session-badge" style="background:var(--accent)">Exam Prep</span>
+        <div class="session-title">Case Study Practice Questions</div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="session">
+        <p class="session-intro">Sessions 3–8 · Apply theory to realistic scenarios · Space provided for notes</p>
+        <div class="session-body">
+
+          <!-- ═══ SESSION 3 CASE STUDIES ═══ -->
+          <div class="session-group-label"><span class="group-badge" style="background:var(--s3)">S3</span>
+            Competency-Based HR &amp; Assessment Centers</div>
+
+          <div class="case-study">
+            <div class="case-study-hdr">
+              <div class="case-study-num" style="background:var(--s3)">1</div>
+              <div>
+                <div class="case-study-label">Case Study · Assessment Center Design</div>
+                <div class="case-study-title">TeleCo Egypt — Digital Banking CX Manager Hiring</div>
+              </div>
+            </div>
+            <div class="case-study-body">
+              <div class="case-study-scenario">TeleCo Egypt is hiring 12 Customer Experience Managers for a newly
+                launched digital banking unit. HR receives 400 applications. The CHRO insists the traditional panel
+                interview alone is "not good enough" and asks you — the HR manager — to design an Assessment Center for
+                the final 30 candidates.</div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s3)">a</span><span>Which
+                  <strong>4 AC tools</strong> would you select for this role, and why? What specific competencies does
+                  each tool target?</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s3)">b</span><span>The CEO
+                  asks: "Why can't we just do interviews? They worked fine for 20 years." Using the <strong>10/90 Total
+                    Person model</strong>, construct a persuasive argument for the AC approach.</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s3)">c</span><span>One
+                  assessor suggests rating all candidates during the group discussion based purely on how confident they
+                  sound. What <strong>bias risk</strong> does this introduce, and how would you mitigate it?</span>
+              </div>
+              <div class="case-hint"><strong>💡 Hint:</strong> Think about which 90% the AC reaches that interviews
+                miss, and which specific competencies (communication, leadership, decision-making) align to a CX manager
+                role.</div>
+            </div>
+          </div>
+
+          <div class="case-study">
+            <div class="case-study-hdr">
+              <div class="case-study-num" style="background:var(--s3)">2</div>
+              <div>
+                <div class="case-study-label">Case Study · CBHR Implementation</div>
+                <div class="case-study-title">Cairo Logistics Firm — Job-Based to Competency-Based HR Transition</div>
+              </div>
+            </div>
+            <div class="case-study-body">
+              <div class="case-study-scenario">A mid-sized logistics firm in Cairo has used the same job-based HR system
+                for 15 years. Pay is determined by seniority, training is a standard annual catalogue, and performance
+                is assessed by a single supervisor using a graphic rating scale. Staff turnover is 28% annually — twice
+                the industry average.</div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s3)">a</span><span>Using
+                  the <strong>CBHR framework's 4 pillars</strong>, diagnose which pillar is most broken and explain how
+                  it contributes to the 28% turnover.</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s3)">b</span><span>Design a
+                  <strong>12-month transition roadmap</strong> from job-based to CBHR, referencing the 4 implementation
+                  steps (Strategic Alignment, Documentation, Management Coordination, Infrastructure).</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s3)">c</span><span>How
+                  would you <strong>justify the investment cost</strong> of CBHR to the board? Reference the "strategic
+                  ROI" concept.</span></div>
+              <div class="case-hint"><strong>💡 Hint:</strong> Connect each CBHR pillar to a specific HR function —
+                recruitment, performance, rewards, development.</div>
+            </div>
+          </div>
+
+          <!-- ═══ SESSIONS 4 & 5 CASE STUDIES ═══ -->
+          <div class="session-group-label"><span class="group-badge" style="background:var(--s4)">S4</span><span
+              class="group-badge" style="background:var(--s5)">S5</span> Job Analysis, Design &amp; Recruitment</div>
+
+          <div class="case-study">
+            <div class="case-study-hdr">
+              <div class="case-study-num" style="background:var(--s4)">3</div>
+              <div>
+                <div class="case-study-label">Case Study · Job Analysis in a Skills-First World</div>
+                <div class="case-study-title">FutureTech Fintech Startup — No Job Descriptions</div>
+              </div>
+            </div>
+            <div class="case-study-body">
+              <div class="case-study-scenario">FutureTech, a rapidly growing fintech startup, has 60 employees and no
+                formal job descriptions. The CEO tells you: "We don't do rigid job descriptions — everyone does
+                everything." You've been brought in as HR Director. Within your first month, three employees quit citing
+                "unclear expectations," and a wrongful termination lawsuit is filed citing inconsistent performance
+                standards.</div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s4)">a</span><span>Explain
+                  to the CEO why <strong>job analysis is not bureaucracy</strong> — it is the legal and operational
+                  foundation of every HR function. Reference at least <strong>4 downstream HR processes</strong> that
+                  depend on it.</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s4)">b</span><span>Which
+                  <strong>data collection method</strong> would you use first to rapidly analyse the 10 most critical
+                  roles, and why? What are the risks of choosing observation for a mostly remote, knowledge-work
+                  team?</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s4)">c</span><span>The CEO
+                  also asks: "Should we enrich or enlarge the developer role?" One developer codes 6 different modules
+                  (all similar difficulty). Another reviews their own code and presents directly to clients. Identify
+                  which has been <strong>enlarged</strong>, which has been <strong>enriched</strong>, and what the
+                  difference means for motivation.</span></div>
+              <div class="case-hint"><strong>💡 Hint:</strong> Connect job analysis to EEO compliance, compensation,
+                recruitment, training, and performance appraisal.</div>
+            </div>
+          </div>
+
+          <div class="case-study">
+            <div class="case-study-hdr">
+              <div class="case-study-num" style="background:var(--s5)">4</div>
+              <div>
+                <div class="case-study-label">Case Study · Recruitment Strategy</div>
+                <div class="case-study-title">Pharmaceutical Company — 20 Junior Research Analysts in 90 Days</div>
+              </div>
+            </div>
+            <div class="case-study-body">
+              <div class="case-study-scenario">A pharmaceutical company needs to hire 20 junior research analysts within
+                90 days. Historical data shows: 15% of applicants pass initial screening, 70% of those pass interviews,
+                60% of offers are accepted. The CHRO wants to use only LinkedIn job postings and employee referrals to
+                keep costs down.</div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s5)">a</span><span>Using
+                  the <strong>Recruiting Yield Pyramid</strong>, calculate exactly how many total applicants the company
+                  needs to generate to achieve 20 hires. <strong>Show your working.</strong></span></div>
+              <div class="case-question"><span class="case-q-letter"
+                  style="background:var(--s5)">b</span><span>Critically evaluate the CHRO's sourcing strategy. Which of
+                  the <strong>9 external sources</strong> are being used, which are being missed, and what is the
+                  <strong>diversity risk</strong> of relying heavily on referrals?</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s5)">c</span><span>An
+                  interviewer has been doing <strong>unstructured interviews</strong> for every candidate — asking
+                  different questions each time based on what "feels right." What are the three main risks of this
+                  approach, and what structured alternative would you recommend?</span></div>
+              <div class="case-hint"><strong>💡 Hint for (a):</strong> Work backwards — 20 hires ÷ 60% acceptance =
+                offers needed, ÷ 70% = interviews, ÷ 15% = total applicants.</div>
+            </div>
+          </div>
+
+          <!-- ═══ SESSION 6 CASE STUDIES ═══ -->
+          <div class="session-group-label"><span class="group-badge" style="background:var(--s6)">S6</span> Performance
+            Management &amp; Appraisal</div>
+
+          <div class="case-study">
+            <div class="case-study-hdr">
+              <div class="case-study-num" style="background:var(--s6)">5</div>
+              <div>
+                <div class="case-study-label">Case Study · Appraisal System Overhaul</div>
+                <div class="case-study-title">MegaRetail — 2,000 Employees, Broken Rating System</div>
+              </div>
+            </div>
+            <div class="case-study-body">
+              <div class="case-study-scenario">MegaRetail has 2,000 employees across Egypt and Gulf. Every December,
+                managers complete a graphic rating scale for all direct reports. HR analysis shows: 78% of employees are
+                rated 4 or 5 out of 5 every year regardless of business performance. The sales team missed target by 30%
+                last year, yet 80% of sales staff received "Very Good" or "Excellent." Three high performers have
+                resigned citing "the same pay raise as everyone else."</div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s6)">a</span><span>Identify
+                  the <strong>specific appraisal errors</strong> occurring, explain what is causing them, and state what
+                  HR and business damage they are causing.</span></div>
+              <div class="case-question"><span class="case-q-letter"
+                  style="background:var(--s6)">b</span><span>Recommend a <strong>replacement appraisal tool</strong>.
+                  Justify your choice using the specific advantages that address the problems identified. Why would
+                  <strong>BARS</strong> be particularly appropriate here versus MBO?</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s6)">c</span><span>Design a
+                  <strong>5-point structured feedback conversation framework</strong> for a sales manager to use when
+                  delivering criticism to an underperforming employee — incorporating the <strong>5 rules for delivering
+                    criticism</strong>.</span></div>
+              <div class="case-hint"><strong>💡 Hint:</strong> Identify leniency bias and halo effect specifically. Note
+                that BARS addresses the "unclear standards" problem that makes leniency easy to commit.</div>
+            </div>
+          </div>
+
+          <div class="case-study">
+            <div class="case-study-hdr">
+              <div class="case-study-num" style="background:var(--s6)">6</div>
+              <div>
+                <div class="case-study-label">Case Study · Performance Management System</div>
+                <div class="case-study-title">Tech Company — From Annual Appraisal to Full PM</div>
+              </div>
+            </div>
+            <div class="case-study-body">
+              <div class="case-study-scenario">A fast-growing tech company is replacing its annual appraisal with a full
+                Performance Management system. The HR Director presents the plan to the CEO, who says: "I don't see the
+                difference. We're already doing appraisals every year. Why spend the money redesigning the whole
+                system?"</div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s6)">a</span><span>Using
+                  the <strong>6 building blocks of Performance Management</strong> (direction sharing, goal alignment,
+                  ongoing monitoring, ongoing feedback, coaching &amp; development, rewards &amp; recognition), explain
+                  to the CEO exactly how PM differs from and exceeds what the annual appraisal achieves.</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s6)">b</span><span>The team
+                  proposes MBO for goal-setting. Write <strong>3 SMART goals</strong> for a Customer Success Manager
+                  role — one strategic, one operational, one developmental. Then identify two potential <strong>MBO
+                    failure points</strong> and how to prevent them.</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s6)">c</span><span>The
+                  2025–2026 trend data shows <strong>90% of HR leaders</strong> believe annual appraisals provide
+                  inaccurate information, and Gartner recommends the <strong>70/30 rule</strong>. Incorporate these
+                  insights into a 2-paragraph argument for why the PM investment is strategically sound.</span></div>
+            </div>
+          </div>
+
+          <!-- ═══ SESSIONS 7 & 8 CASE STUDIES ═══ -->
+          <div class="session-group-label"><span class="group-badge" style="background:var(--s7)">S7</span> Training and
+            Development</div>
+
+          <div class="case-study">
+            <div class="case-study-hdr">
+              <div class="case-study-num" style="background:var(--s7)">7</div>
+              <div>
+                <div class="case-study-label">Case Study · Training Needs Diagnosis</div>
+                <div class="case-study-title">Regional Bank — Digital Platform Rollout Across 200 Branches</div>
+              </div>
+            </div>
+            <div class="case-study-body">
+              <div class="case-study-scenario">A regional bank is rolling out a new digital platform across 200
+                branches. Six months after launch, data shows: <strong>Branch A</strong> staff use it correctly 90% of
+                the time (trained intensively). <strong>Branch B</strong> staff use it correctly 40% of the time —
+                despite being trained — because the system crashes every afternoon. <strong>Branch C</strong> staff
+                refuse to use it at all and continue using paper forms, claiming "this is how we've always done it."
+              </div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s7)">a</span><span>Using
+                  the <strong>2×2 "To Train or Not" diagnostic matrix</strong>, classify Branch B and Branch C into
+                  their respective quadrants. For each, state the correct intervention — and why providing more training
+                  would be the wrong answer for at least one of them.</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s7)">b</span><span>Design
+                  an <strong>ADDIE-based training programme</strong> for Branch A staff to train the 600 newly hired
+                  tellers joining next quarter. Include one specific deliverable for each of the <strong>5
+                    phases</strong>.</span></div>
+              <div class="case-question"><span class="case-q-letter" style="background:var(--s7)">c</span><span>The Head
+                  of L&amp;D proposes using <strong>VR simulation</strong> for teller training. Using the 2026 L&amp;D
+                  trend data (PwC research findings), build the business case for this investment over traditional
+                  classroom training.</span></div>
+              <div class="case-hint"><strong>💡 Hint:</strong> Branch B = High Knowledge, Low Attitude? Or Systemic?
+                Think about <em>why</em> they fail — is it skill or environment? Branch C = Low Knowledge, Low Attitude?
+                Or High Knowledge, Low Attitude?</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="showPage('s7')">
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        <div><span class="nav-label">← Previous</span><span class="nav-title">S7 · Training &amp; Development</span>
+        </div>
+      </button>
+      <button class="bottom-nav-btn next" onclick="showPage('qref')">
+        <div><span class="nav-label">Next →</span><span class="nav-title">Quick Reference Table</span></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+     PAGE: QUICK REFERENCE
+═══════════════════════════════════════════════════════ -->
+  <div class="page" id="page-qref">
+    <div class="sub-header" style="background:var(--ink-hdr);border-color:transparent;">
+      <div class="sub-header-inner">
+        <span class="session-badge" style="background:var(--gold)">Reference</span>
+        <div class="session-title" style="color:#f5f2eb">Critical Numbers &amp; Key Facts</div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="qref" style="margin-top:30px">
+        <div class="qref-hdr">
+          <div class="eyebrow">Quick Reference</div>
+          <div class="title">Critical Numbers &amp; Key Facts to Remember</div>
+        </div>
+        <div class="qref-body">
+          <div class="table-wrap">
+            <table class="t">
+              <tr>
+                <th>Fact</th>
+                <th>Number / Key Point</th>
+                <th>Session</th>
+              </tr>
+              <tr>
+                <td>"Total Person" — visible vs hidden</td>
+                <td><strong>10% / 90%</strong></td>
+                <td>S3</td>
+              </tr>
+              <tr>
+                <td>Organizations adopting skills-based hiring</td>
+                <td><strong>76%</strong></td>
+                <td>S4, S5, S6</td>
+              </tr>
+              <tr>
+                <td>Companies that deployed AI vs rebuilt workflows</td>
+                <td><strong>80% vs 20%</strong></td>
+                <td>S4</td>
+              </tr>
+              <tr>
+                <td>TA organizations driving strategic workforce planning</td>
+                <td><strong>71%</strong></td>
+                <td>S5</td>
+              </tr>
+              <tr>
+                <td>Employees needing reskilling by 2027</td>
+                <td><strong>50%</strong></td>
+                <td>S7</td>
+              </tr>
+              <tr>
+                <td>Technical skill half-life</td>
+                <td><strong>&lt;5 years</strong></td>
+                <td>S7</td>
+              </tr>
+              <tr>
+                <td>VR training — confidence increase vs traditional</td>
+                <td><strong>275% more confident; 4× faster</strong></td>
+                <td>S7</td>
+              </tr>
+              <tr>
+                <td>HR leaders who think annual appraisals are inaccurate</td>
+                <td><strong>90%</strong></td>
+                <td>S6</td>
+              </tr>
+              <tr>
+                <td>Engagement multiplier from human-centric PM</td>
+                <td><strong>3.2×</strong></td>
+                <td>S6</td>
+              </tr>
+              <tr>
+                <td>70/30 PM Rule (Gartner)</td>
+                <td><strong>70% developmental / 30% evaluative</strong></td>
+                <td>S6</td>
+              </tr>
+              <tr>
+                <td>Wellbeing → productivity increase</td>
+                <td><strong>+21%</strong></td>
+                <td>S8</td>
+              </tr>
+              <tr>
+                <td>Orgs using retention-specific bonuses</td>
+                <td><strong>65%</strong></td>
+                <td>S8</td>
+              </tr>
+              <tr>
+                <td>AI increased urgency to deliver</td>
+                <td><strong>98%</strong> of orgs report urgency</td>
+                <td>S5</td>
+              </tr>
+              <tr>
+                <td>ADDIE stands for</td>
+                <td>Assessment · Design · Development · Implementation · Evaluation</td>
+                <td>S7</td>
+              </tr>
+              <tr>
+                <td>4 Compensable Factors (Point Method)</td>
+                <td>Skills · Effort · Responsibility · Working Conditions</td>
+                <td>S8</td>
+              </tr>
+              <tr>
+                <td>CBI interview technique</td>
+                <td>STAR: Situation → Task → Action → Result</td>
+                <td>S3</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-nav">
+      <button class="bottom-nav-btn" onclick="showPage('exam')">
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        <div><span class="nav-label">← Previous</span><span class="nav-title">Exam Prep · Case Studies</span></div>
+      </button>
+      <div></div>
+    </div>
+  </div>
+
+  <script>
+    // ═══════════════════════════════════════════════
+    //  NAVIGATION
+    // ═══════════════════════════════════════════════
+    let currentPage = 'home';
+
+    function showPage(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+      // Show target page
+      const target = document.getElementById('page-' + pageId);
+      if (target) {
+        target.classList.add('active');
+        currentPage = pageId;
+      }
+
+      // Toggle back button
+      const backBtn = document.getElementById('back-btn');
+      if (pageId === 'home') {
+        backBtn.classList.remove('visible');
+      } else {
+        backBtn.classList.add('visible');
+      }
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'instant' });
+
+      // Update URL hash
+      if (pageId === 'home') {
+        history.pushState(null, '', window.location.pathname);
+      } else {
+        history.pushState(null, '', '#' + pageId);
+      }
+    }
+
+    function showHome() {
+      showPage('home');
+    }
+
+    // Handle back/forward browser navigation
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        showPage(hash);
+      } else {
+        showPage('home');
+      }
+    });
+
+    // Handle initial load with hash
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById('page-' + hash)) {
+        showPage(hash);
+      }
+    });
+
+    // ═══════════════════════════════════════════════
+    //  THEME TOGGLE
+    // ═══════════════════════════════════════════════
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      document.getElementById('toggle-icon').textContent = isDark ? '🌙' : '☀️';
+      document.getElementById('toggle-label').textContent = isDark ? 'Dark' : 'Light';
+      localStorage.setItem('hr-theme', isDark ? 'light' : 'dark');
+    }
+
+    // Restore saved preference
+    (function () {
+      const saved = localStorage.getItem('hr-theme');
+      if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('toggle-icon').textContent = '☀️';
+        document.getElementById('toggle-label').textContent = 'Light';
+      }
+    })();
+
+    // ═══════════════════════════════════════════════
+    //  SCROLL PROGRESS
+    // ═══════════════════════════════════════════════
+    window.addEventListener('scroll', () => {
+      if (currentPage === 'home') {
+        document.getElementById('scroll-progress').style.width = '0%';
+        return;
+      }
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+    });
+
+    // ═══════════════════════════════════════════════
+    //  KEYBOARD NAVIGATION
+    // ═══════════════════════════════════════════════
+    const pageOrder = ['home', 's3', 's4', 's5', 's6', 's7', 'exam', 'qref'];
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && currentPage !== 'home') {
+        showHome();
+      }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        const idx = pageOrder.indexOf(currentPage);
+        if (e.key === 'ArrowLeft' && idx > 0) {
+          showPage(pageOrder[idx - 1]);
+        }
+        if (e.key === 'ArrowRight' && idx < pageOrder.length - 1) {
+          showPage(pageOrder[idx + 1]);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
